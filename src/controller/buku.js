@@ -19,7 +19,7 @@ const getAllBuku = async (req, res) => {
 const createNewBuku = async (req, res) => {
   const { body } = req;
 
-  if (!body.judul_buku || !body.penulis || !body.tahun_buku || !body.kategori_buku || !body.sinopsis_buku) {
+  if (!body.judul_buku || !body.penulis || !body.tahun_buku || !body.kategori_buku || !body.sinopsis_buku || !body.gambar || !body.liked_by) {
     return res.status(400).json({
       message: 'Anda mengirimkan data yang salah',
       data: null,
