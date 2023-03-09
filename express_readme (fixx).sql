@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Mar 07, 2023 at 02:37 PM
+-- Generation Time: Mar 09, 2023 at 01:14 AM
 -- Server version: 5.7.34
 -- PHP Version: 7.4.21
 
@@ -63,6 +63,7 @@ INSERT INTO `buku` (`id`, `judul_buku`, `penulis`, `tahun_buku`, `kategori_buku`
 
 CREATE TABLE `pinjam` (
   `id` int(11) NOT NULL,
+  `id_buku` int(11) DEFAULT NULL,
   `judul_buku` varchar(100) DEFAULT NULL,
   `penulis` varchar(100) DEFAULT NULL,
   `tahun_buku` varchar(5) DEFAULT NULL,
@@ -71,6 +72,7 @@ CREATE TABLE `pinjam` (
   `gambar` varchar(100) DEFAULT NULL,
   `liked_by` varchar(50) DEFAULT NULL,
   `waktu_pinjam` varchar(100) DEFAULT NULL,
+  `halaman_dibaca` varchar(100) DEFAULT NULL,
   `pinjam_by` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -78,10 +80,10 @@ CREATE TABLE `pinjam` (
 -- Dumping data for table `pinjam`
 --
 
-INSERT INTO `pinjam` (`id`, `judul_buku`, `penulis`, `tahun_buku`, `kategori_buku`, `sinopsis_buku`, `gambar`, `liked_by`, `waktu_pinjam`, `pinjam_by`) VALUES
-(8, 'Cerita Rakyat Nusantara', 'Tim EFK', '2020', 'Sejarah', 'Buku seri Cerita Rakyat Nusantara mengajakmu menemukan pesan-pesan moral pada cerita-cerita rakyat. Ikutlah bertualang ke seluruh wilayah nusantara melalui cerita-cerita menarik dalam buku ini', 'http://localhost:4000/assets/book1.png', '1', '2023-03-07 00:00:00', 1),
-(9, 'Angkasa dan 56 Hari', 'Destasya WDP', '2020', 'Novel', 'Sebuah takdir mempertemukan Nadine Jedvanna dengan cinta pertamanya. Sebuah kata sapa sederhana, “Hai”, mengawali kisah cinta Nadine dan seorang pria bernama angkasa', 'http://localhost:4000/assets/book3.png', '1', '2023-03-07 00:00:00', 1),
-(10, 'Cerita Islam Nusantara', 'Tim EFK', '2020', 'Sejarah', 'Buku seri Cerita Islam Nusantara mengajakmu menemukan pesan-pesan moral pada cerita-cerita rakyat. Ikutlah bertualang ke seluruh wilayah nusantara melalui cerita-cerita menarik dalam buku ini', 'http://localhost:4000/assets/book2.png', '1', '2023-03-07 00:00:00', 1);
+INSERT INTO `pinjam` (`id`, `id_buku`, `judul_buku`, `penulis`, `tahun_buku`, `kategori_buku`, `sinopsis_buku`, `gambar`, `liked_by`, `waktu_pinjam`, `halaman_dibaca`, `pinjam_by`) VALUES
+(8, 1, 'Cerita Rakyat Nusantara', 'Tim EFK', '2020', 'Sejarah', 'Buku seri Cerita Rakyat Nusantara mengajakmu menemukan pesan-pesan moral pada cerita-cerita rakyat. Ikutlah bertualang ke seluruh wilayah nusantara melalui cerita-cerita menarik dalam buku ini', 'http://localhost:4000/assets/book1.png', '1', '2023-03-07 00:00:00', '1', 1),
+(9, 1, 'Angkasa dan 56 Hari', 'Destasya WDP', '2020', 'Novel', 'Sebuah takdir mempertemukan Nadine Jedvanna dengan cinta pertamanya. Sebuah kata sapa sederhana, “Hai”, mengawali kisah cinta Nadine dan seorang pria bernama angkasa', 'http://localhost:4000/assets/book3.png', '1', '2023-03-07 00:00:00', '1', 1),
+(10, 1, 'Cerita Islam Nusantara', 'Tim EFK', '2020', 'Sejarah', 'Buku seri Cerita Islam Nusantara mengajakmu menemukan pesan-pesan moral pada cerita-cerita rakyat. Ikutlah bertualang ke seluruh wilayah nusantara melalui cerita-cerita menarik dalam buku ini', 'http://localhost:4000/assets/book2.png', '1', '2023-03-07 00:00:00', '1', 1);
 
 -- --------------------------------------------------------
 
@@ -134,13 +136,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `buku`
 --
 ALTER TABLE `buku`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `pinjam`
 --
 ALTER TABLE `pinjam`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `users`

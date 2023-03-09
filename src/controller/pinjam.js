@@ -19,7 +19,7 @@ const getAllPinjam = async (req, res) => {
 const createNewPinjam = async (req, res) => {
   const { body } = req;
 
-  if (!body.judul_buku || !body.penulis || !body.tahun_buku || !body.kategori_buku || !body.sinopsis_buku || !body.gambar || !body.liked_by || !body.waktu_pinjam || !body.pinjam_by) {
+  if (!body.judul_buku || !body.penulis || !body.tahun_buku || !body.kategori_buku || !body.sinopsis_buku || !body.gambar || !body.liked_by || !body.waktu_pinjam || !body.pinjam_by || !body.id_buku || !body.halaman_dibaca) {
     return res.status(400).json({
       message: 'Anda mengirimkan data yang salah',
       data: null,
